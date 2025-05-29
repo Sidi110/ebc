@@ -1,0 +1,120 @@
+.container {
+  --primary: #38bdf8;
+  --primary-dark: #0ea5e9;
+  --secondary: #06b6d4;
+  --text: #f8fafc;
+  --text-light: #cbd5e1;
+  --bg: #0f172a;
+
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 6rem 1rem;
+  font-family: 'Nunito', sans-serif;
+  position: relative;
+  overflow: hidden;
+  top: 140px;
+}
+
+.gradientBackground {
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg);
+  z-index: 0;
+  animation: gradientPulse 15s ease infinite alternate;
+  pointer-events: none;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--text);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: var(--text-light);
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeIn 0.6s 0.3s ease-out forwards;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: calc(0.2s + var(--i) * 0.1s);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.skillList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skillItem {
+  font-size: 1rem;
+  color: var(--text-light);
+  padding: 0.25rem 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientPulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}

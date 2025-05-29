@@ -1,0 +1,158 @@
+.footerSection {
+  --primary: #38bdf8;
+  --primary-dark: #0ea5e9;
+  --secondary: #06b6d4;
+  --text: #f8fafc;
+  --text-light: #cbd5e1;
+  --bg: #0f172a;
+
+  position: relative;
+  top: 200px;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  padding: 6rem 1rem;
+  overflow: hidden;
+}
+
+
+.gradientBackground {
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg);
+  z-index: 0;
+  animation: gradientPulse 15s ease infinite alternate;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  padding: 0 1.5rem;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.textContent {
+  flex: 1;
+  z-index: 2;
+  text-align: center;
+}
+
+.textInner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  color: var(--text);
+}
+
+.titleLine {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  animation: gradientPulse 3s ease-in-out infinite;
+}
+
+.description {
+  font-size: clamp(1rem, 3vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeIn 0.6s 0.6s ease-out forwards;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 1rem;
+  color: var(--text-light);
+  text-align: left;
+  margin-top: 1rem;
+  opacity: 0;
+  animation: fadeIn 0.6s 0.8s ease-out forwards;
+}
+
+.contactInfo a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.contactInfo a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeIn 0.6s 1s ease-out forwards;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientPulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .textInner {
+    text-align: left;
+  }
+
+  .contactInfo {
+    font-size: 0.95rem;
+  }
+}
