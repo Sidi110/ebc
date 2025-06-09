@@ -29,7 +29,7 @@ export default function Navbare() {
   }, []);
 
   const links = [
-    { icon: <FaHome />, text: 'Home', to: '/' },
+    { icon: <FaHome />, text: 'Home', to: '/home' },
     { icon: <FaUserGraduate />, text: 'Results', to: '/results' },
     { icon: <FaEnvelope />, text: 'Contact', to: '/contact' },
     { icon: <FaNewspaper />, text: 'News', to: '/news' },
