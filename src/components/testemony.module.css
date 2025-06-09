@@ -21,7 +21,8 @@
   padding: 8rem 1rem;
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: "Nunito", sans-serif;
+
   overflow: hidden;
   top: 110px;
 }
@@ -76,6 +77,10 @@
   letter-spacing: -0.025em;
   animation: fadeInUp 0.8s 0.2s ease-out forwards;
   opacity: 0;
+  background: linear-gradient(to right, var(--foreground) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .underline {

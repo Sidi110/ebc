@@ -144,7 +144,7 @@ const Aboutus = () => {
                   <p className={styles.featureText}>
                     <strong>Supportive Community</strong> — Join a diverse, welcoming environment where 
                     students thrive through practice, feedback, and cultural exchange.
-                  </p>
+              </p>
                 </div>
               </div>
             

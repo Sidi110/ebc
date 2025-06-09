@@ -19,16 +19,12 @@
 .heroSection {
   position: relative;
   top: 110px;
-  min-height: 100vh;
-  padding: 6rem 1rem 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 8rem 1rem;
   background-color: var(--background);
   color: var(--foreground);
+  font-family: "Nunito", sans-serif;
+
   overflow: hidden;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  isolation: isolate;
 }
 
 .gradientBackground {
@@ -58,12 +54,11 @@
 }
 
 .container {
-  position: relative;
-  z-index: 1;
   max-width: 1200px;
-  width: 100%;
-  padding: 0 1rem;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  padding: 0 1.5rem;
 }
 
 .contentWrapper {
@@ -77,6 +72,11 @@
 .textContent {
   width: 100%;
   max-width: 800px;
+}
+
+.textInner {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .badge {
@@ -110,18 +110,20 @@
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
-  background: linear-gradient(to right, var(--foreground) 0%, var(--primary) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  display: flex;
+  flex-direction: column;
+  color: var(--foreground);
   letter-spacing: -0.025em;
 }
 
 .titleLine {
-  display: block;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  background: linear-gradient(to right, var(--foreground) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .titleLine:nth-child(1) { animation-delay: 0.1s; }
@@ -252,50 +254,6 @@
   text-align: center;
 }
 
-.scrollIndicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  animation: fadeIn 1s ease forwards 1s;
-}
-
-.scrollIndicator span {
-  display: block;
-  width: 24px;
-  height: 40px;
-  border: 2px solid var(--primary);
-  border-radius: var(--radius-full);
-  position: relative;
-  opacity: 0.6;
-}
-
-.scrollIndicator span::before {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 6px;
-  background: var(--primary);
-  border-radius: 50%;
-  animation: scroll 2s infinite;
-}
-
-/* Animations remain the same */
-@keyframes scroll {
-  0% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(16px);
-  }
-}
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -315,7 +273,7 @@
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
@@ -323,9 +281,9 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .heroSection {
-    padding: 5rem 1rem 3rem;
+    padding: 6rem 1rem;
   }
 
   .contentWrapper {
@@ -341,7 +299,6 @@
   }
 
   .statsContainer {
-    grid-template-columns: 1fr;
     gap: 1rem;
   }
 
