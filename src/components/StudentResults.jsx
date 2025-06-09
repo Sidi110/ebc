@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './results.module.css';
 
 const studentsData = [
@@ -53,51 +53,77 @@ const StudentResults = () => {
   );
 
   return (
-    <section className={styles.resultsWrapper}>
-      <div className={styles.header}>
-        <h1 className={styles.sectionTitle}>Student Results</h1>
-      </div>
+    <section className={styles.resultsSection}>
+      <div className={styles.gradientBackground} aria-hidden="true" />
 
-      <div className={styles.searchBar}>
-        <input
-          type="text"
-          placeholder="Search by name or ID..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
+      <div className={styles.container}>
+        <div className={styles.contentWrapper}>
+          <div className={styles.textContent}>
+            <div className={styles.textInner}>
+              <span className={styles.badge}>
+                <svg className={styles.badgeIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                </svg>
+                Student Results
+              </span>
 
-      <div className={styles.tableContainer}>
-        {filteredStudents.length > 0 ? (
-          <table className={styles.resultsTable}>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Grammar</th>
-                <th>Spelling</th>
-                <th>Total</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredStudents.map((student) => (
-                <tr key={student.id}>
-                  <td>{student.id}</td>
-                  <td>{student.name}</td>
-                  <td>{student.grammar}</td>
-                  <td>{student.spelling}</td>
-                  <td>{student.total}</td>
-                  <td className={`${styles.status} ${student.status === 'Pass' ? styles.pass : styles.fail}`}>
-                    {student.status}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <p className={styles.noResults}>No matching students found.</p>
-        )}
+              <h2 className={styles.title}>
+                <span className={styles.titleLine}>Check Your</span>
+                <span className={`${styles.titleLine} ${styles.highlight}`}>Academic Progress</span>
+              </h2>
+
+              <p className={styles.description}>
+                View your academic achievements and track your progress at English Basics Center. Search for your results using your name or student ID.
+              </p>
+
+              <div className={styles.searchBar}>
+                <input
+                  type="text"
+                  placeholder="Search by name or ID..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+              </div>
+
+              <div className={styles.tableContainer}>
+                {filteredStudents.length > 0 ? (
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Grammar</th>
+                        <th>Spelling</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {filteredStudents.map((student) => (
+                        <tr key={student.id}>
+                          <td data-label="ID">{student.id}</td>
+                          <td data-label="Name">{student.name}</td>
+                          <td data-label="Grammar">{student.grammar}</td>
+                          <td data-label="Spelling">{student.spelling}</td>
+                          <td data-label="Total">{student.total}</td>
+                          <td data-label="Status">
+                            <span className={`${styles.status} ${student.status === 'Pass' ? styles.pass : styles.fail}`}>
+                              {student.status}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                ) : (
+                  <p className={styles.noResults}>No matching students found.</p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
