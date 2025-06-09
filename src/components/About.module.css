@@ -19,11 +19,10 @@
 .aboutSection {
   position: relative;
   top: 110px;
-  padding: 8rem 1rem;
+  padding: 6rem 1rem;
   background-color: var(--background);
   color: var(--foreground);
   font-family: "Nunito", sans-serif;
-
   overflow: hidden;
 }
 
@@ -36,21 +35,6 @@
   z-index: -1;
   pointer-events: none;
   animation: gradientShift 20s ease infinite alternate;
-}
-
-@keyframes gradientShift {
-  0% { 
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
-  100% { 
-    transform: scale(1);
-    opacity: 1;
-  }
 }
 
 .container {
@@ -70,9 +54,41 @@
 
 @media (min-width: 992px) {
   .contentWrapper {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 360px 1fr;
     gap: 6rem;
   }
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeIn 0.6s 0.7s ease-out forwards;
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9/16;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--foreground);
+  transition: all 0.3s ease;
+}
+
+.videoContainer:hover {
+  transform: translateY(-20px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .textContent {
@@ -105,6 +121,11 @@
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+.badgeIcon {
+  width: 16px;
+  height: 16px;
 }
 
 .title {
@@ -223,79 +244,6 @@
   transform: translateX(4px);
 }
 
-.videoWrapper {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  opacity: 0;
-  animation: fadeIn 0.6s 0.7s ease-out forwards;
-  margin: 0 auto;
-}
-
-.videoContainer {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  aspect-ratio: 16 / 9;
-  background: var(--foreground);
-  transition: all 0.3s ease;
-}
-
-.videoContainer:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-}
-
-.video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.videoOverlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  backdrop-filter: blur(2px);
-}
-
-.videoOverlay:hover {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.videoOverlay:hover .playButton {
-  transform: scale(1.1);
-  box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1);
-}
-
-.playButton {
-  width: 64px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-full);
-  transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.playIcon {
-  width: 100%;
-  height: 100%;
-  transition: all 0.3s ease;
-  color: white;
-}
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -323,9 +271,24 @@
   }
 }
 
+@keyframes gradientShift {
+  0% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 @media (max-width: 767px) {
   .aboutSection {
-    padding: 6rem 1rem;
+    padding: 4rem 1rem;
   }
 
   .featuresList {
@@ -341,8 +304,8 @@
     justify-content: center;
   }
 
-  .videoContainer {
-    border-radius: var(--radius-md);
+  .videoWrapper {
+    max-width: 280px;
   }
 }
 
