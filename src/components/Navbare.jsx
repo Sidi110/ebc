@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import {
   FaHome,
   FaUserGraduate,
-  FaMicrophone,
   FaEnvelope,
   FaNewspaper,
   FaTimes
@@ -32,7 +31,6 @@ export default function Navbare() {
   const links = [
     { icon: <FaHome />, text: 'Home', to: '/' },
     { icon: <FaUserGraduate />, text: 'Results', to: '/results' },
-    { icon: <FaMicrophone />, text: 'Speaking', to: '/speaking' },
     { icon: <FaEnvelope />, text: 'Contact', to: '/contact' },
     { icon: <FaNewspaper />, text: 'News', to: '/news' },
   ];

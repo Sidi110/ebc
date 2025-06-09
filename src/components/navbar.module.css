@@ -4,16 +4,16 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: #1e293bdd;
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   transition: padding 0.3s ease, box-shadow 0.3s ease;
   font-family: "Nunito", sans-serif;
 }
 
 .header.scrolled {
   padding: 0.4rem 0;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
 }
 
 /* ==== Container ==== */
@@ -35,6 +35,11 @@
 
 .logo {
   height: 5.75rem;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .logoText {
@@ -61,14 +66,14 @@
 }
 
 .menuToggle:hover {
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .menuToggle span {
   width: 1.5rem;
   height: 2px;
   margin: 0.3rem 0;
-  background-color: #f1f5f9;
+  background-color: #1a1a1a;
   display: block;
   border-radius: 2px;
   transition: all 0.3s ease;
@@ -77,7 +82,7 @@
 /* ==== Close Icon ==== */
 .closeIcon {
   font-size: 1.75rem;
-  color: #f1f5f9;
+  color: #1a1a1a;
   transition: all 0.3s ease;
 }
 
@@ -99,7 +104,7 @@
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  color: #cbd5e1;
+  color: #4a4a4a;
   font-weight: 600;
   position: relative;
   padding: 0.5rem 0;
@@ -107,7 +112,7 @@
 }
 
 .navLink:hover {
-  color: #3b82f6;
+  color: #1a1a1a;
 }
 
 .iconWrapper {
@@ -127,7 +132,7 @@
   left: 0;
   height: 2px;
   width: 0;
-  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  background: linear-gradient(90deg, #1a1a1a, #4a4a4a);
   transition: width 0.3s ease;
 }
 
@@ -135,7 +140,6 @@
   width: 100%;
 }
 
-/* ==== Mobile Nav ==== */
 /* ==== Mobile Nav ==== */
 @media (max-width: 768px) {
   .menuToggle {
@@ -151,15 +155,14 @@
     height: 100vh;
     width: 85%;
     max-width: 320px;
-    background: #1e293b; /* Changed from transparent to solid */
-    box-shadow: -6px 0 30px rgba(0, 0, 0, 0.25);
+    background: #ffffff;
+    box-shadow: -6px 0 30px rgba(0, 0, 0, 0.1);
     padding-top: 6rem;
     flex-direction: column;
     align-items: flex-start;
     z-index: 1050;
     overflow-y: auto;
     transform: translateX(100%);
-    /* Removed backdrop-filter since we're using solid color now */
   }
 
   .mobileNav {
@@ -183,17 +186,12 @@
     width: 100%;
     font-size: 1.15rem;
     padding: 1rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Slightly more visible border */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
 
   .navLink:hover {
     padding-left: 0.75rem;
-    background-color: rgba(
-      59,
-      130,
-      246,
-      0.15
-    ); /* Slightly more visible hover */
+    background-color: rgba(0, 0, 0, 0.03);
     border-radius: 0.5rem;
   }
 
@@ -207,7 +205,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.7); /* Darker backdrop for better contrast */
+    background: rgba(0, 0, 0, 0.3);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease;

@@ -27,70 +27,113 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.heroSection}>
-  <div className={styles.gradientBackground} aria-hidden="true"></div>
+    <section 
+      ref={sectionRef} 
+      className={styles.heroSection}
+      aria-label="Hero section"
+    >
+      <div className={styles.gradientBackground} aria-hidden="true" />
 
-  <div className={styles.container}>
-    <div className={styles.contentWrapper}>
+      <div className={styles.container}>
+        <div className={styles.contentWrapper}>
+          <div className={styles.textContent}>
+            <div className={styles.textInner}>
+              <div 
+                className={clsx(styles.badge, styles.fadeIn)}
+                role="status"
+                aria-label="New feature announcement"
+              >
+                <span>New</span> Transform Your English Journey
+              </div>
 
-      <div className={styles.textContent}>
-        <div className={styles.textInner}>
+              <h1 className={styles.title}>
+                <span className={styles.titleLine}>Master English with</span>
+                <span className={styles.titleLine}>Confidence & Clarity</span>
+              </h1>
 
-          <div className={clsx(styles.badge, styles.fadeIn)}>
-            <span>New</span> Immersive Learning Method
-          </div>
+              <p className={styles.description}>
+                At <strong>EBC – English Basics Center</strong>, we revolutionize language learning through 
+                <span className={styles.highlight}> immersive experiences and personalized guidance</span>. 
+                Join our community of successful learners and unlock your potential in English communication, 
+                academic excellence, and professional growth.
+              </p>
 
-          <h1 className={styles.title}>
-            <span className={styles.titleLine}>Master English</span>
-            <span className={styles.titleLine}>and speak Fluently</span>
-          </h1>
+              <div className={styles.ctaContainer}>
+                <a 
+                  href="#contact" 
+                  className={styles.primaryCta}
+                  aria-label="Start your English learning journey"
+                >
+                  <span>Start Your Journey</span>
+                  <svg 
+                    width="20" 
+                    height="20" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
 
-          <p className={styles.description}>
-            At <strong>EBC – English Basics Center</strong>, we don’t just teach English — we
-            <span className={styles.highlight}> equip you with the language of success</span>. Join us to build real-world communication skills and open doors to education, travel, and career growth!
-          </p>
+                <a 
+                  href="#courses" 
+                  className={styles.secondaryCta}
+                  aria-label="Explore our English learning programs"
+                >
+                  <span>Discover Programs</span>
+                  <svg 
+                    width="20" 
+                    height="20" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                    <path d="M12 16v-4M12 8h.01"/>
+                  </svg>
+                </a>
+              </div>
 
-          <div className={styles.ctaContainer}>
-            <a href="#" className={styles.primaryCta} aria-label="Begin your journey">
-              <span>Begin Your Journey</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
-
-            <a href="#" className={styles.secondaryCta} aria-label="Explore our courses">
-              <span>Explore Courses</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M12 16V12M12 8H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
-          </div>
-
-          <div className={styles.statsContainer}>
-            <div className={styles.statItem}>
-              <span className={styles.statNumber} data-count="15000">0+</span>
-              <span className={styles.statLabel}>Students</span>
+              <div 
+                className={styles.statsContainer}
+                role="region"
+                aria-label="Key statistics"
+              >
+                <div className={styles.statItem}>
+                  <span className={styles.statNumber}>15K+</span>
+                  <span className={styles.statLabel}>Successful Students</span>
+                </div>
+                <div className={styles.statItem}>
+                  <span className={styles.statNumber}>98%</span>
+                  <span className={styles.statLabel}>Success Rate</span>
+                </div>
+                <div className={styles.statItem}>
+                  <span className={styles.statNumber}>24/7</span>
+                  <span className={styles.statLabel}>Expert Support</span>
+                </div>
+              </div>
             </div>
-            <div className={styles.statItem}>
-              <span className={styles.statNumber} data-count="98">0%</span>
-              <span className={styles.statLabel}>Success</span>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statNumber} data-count="24">0/7</span>
-              <span className={styles.statLabel}>Support</span>
-            </div>
           </div>
-
         </div>
       </div>
 
-    </div>
-  </div>
-
-  <div className={styles.scrollIndicator}><span></span></div>
-</section>
-
+      <div 
+        className={styles.scrollIndicator} 
+        aria-hidden="true"
+        role="presentation"
+      >
+        <span></span>
+      </div>
+    </section>
   );
 };
 

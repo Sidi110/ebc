@@ -46,6 +46,7 @@ const StarRating = ({ rating }) => {
           viewBox="0 0 24 24"
           fill={i < rating ? "#F59E0B" : "#E2E8F0"}
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
           <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
         </svg>
@@ -83,13 +84,18 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className={styles.testimonials} aria-labelledby="testimonials-heading">
-      <div ></div>
-      <div ></div>
+    <section 
+      className={styles.testimonials} 
+      aria-labelledby="testimonials-heading"
+    >
+      <div className={styles.gradientBackground} aria-hidden="true" />
       
       <div className={styles.container}>
         <header className={styles.header}>
-          <h3 className={styles.sectionSubtitle} id="testimonials-heading">Success Stories</h3>
+          <h3 className={styles.sectionSubtitle} id="testimonials-heading">
+            <span role="img" aria-label="star">⭐</span>
+            Success Stories
+          </h3>
           <h2 className={styles.sectionTitle}>Trusted by Professionals & Students</h2>
           <div className={styles.underline}></div>
         </header>
@@ -101,7 +107,7 @@ export default function Testimonials() {
               className={styles.testimonialCard}
               ref={(el) => (cardsRef.current[index] = el)}
             >
-              <div className={styles.quoteMark}>”</div>
+              <div className={styles.quoteMark} aria-hidden="true">"</div>
               
               <div className={styles.avatarContainer}>
                 <div 
@@ -120,9 +126,6 @@ export default function Testimonials() {
                 <span className={styles.name}>{testimonial.author}</span>
                 <span className={styles.role}>{testimonial.role}</span>
               </div>
-              
-              <div className={styles.cardFooter}></div>
-              <div className={styles.cardHoverEffect}></div>
             </article>
           ))}
         </div>

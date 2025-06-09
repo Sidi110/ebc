@@ -12,7 +12,7 @@ function Home() {
     <div className="App">
       <Herosection />
       <Aboutus />
-      <CoursesOverview />
+      {/* <CoursesOverview /> */}
       <Testimonials />
       <TaiLinks />
     </div>
